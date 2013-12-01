@@ -15,7 +15,7 @@
     // Override point for customization after application launch.
     
     //AVAudioPlayer *player; 배경음악 재생
-    NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"Concentrate" ofType:@"mp3"]];
+    NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"Gymnopedie" ofType:@"mp3"]];
     
     NSError *error;
     _player = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];

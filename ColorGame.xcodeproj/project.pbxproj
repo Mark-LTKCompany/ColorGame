@@ -25,7 +25,7 @@
 		44A934B5184A5ED400072989 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 44A934B3184A5ED400072989 /* InfoPlist.strings */; };
 		44A934B7184A5ED400072989 /* ColorGameTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A934B6184A5ED400072989 /* ColorGameTests.m */; };
 		44A934C2184A5F0600072989 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A934C1184A5F0600072989 /* GameViewController.m */; };
-		44A934E4184A937000072989 /* Concentrate.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 44A934E3184A937000072989 /* Concentrate.mp3 */; };
+		44C21F35184B83940026931D /* Gymnopedie.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 44C21F34184B83940026931D /* Gymnopedie.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,7 +65,7 @@
 		44A934B6184A5ED400072989 /* ColorGameTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ColorGameTests.m; sourceTree = "<group>"; };
 		44A934C0184A5F0600072989 /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
 		44A934C1184A5F0600072989 /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
-		44A934E3184A937000072989 /* Concentrate.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Concentrate.mp3; sourceTree = "<group>"; };
+		44C21F34184B83940026931D /* Gymnopedie.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Gymnopedie.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,10 +147,10 @@
 			isa = PBXGroup;
 			children = (
 				44A93490184A5ED300072989 /* ColorGame-Info.plist */,
-				44A934E3184A937000072989 /* Concentrate.mp3 */,
 				44A93491184A5ED300072989 /* InfoPlist.strings */,
 				44A93494184A5ED400072989 /* main.m */,
 				44A93496184A5ED400072989 /* ColorGame-Prefix.pch */,
+				44C21F34184B83940026931D /* Gymnopedie.mp3 */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -249,7 +249,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				44A934E4184A937000072989 /* Concentrate.mp3 in Resources */,
+				44C21F35184B83940026931D /* Gymnopedie.mp3 in Resources */,
 				44A9349F184A5ED400072989 /* Main_iPad.storyboard in Resources */,
 				44A934A4184A5ED400072989 /* Images.xcassets in Resources */,
 				44A9349C184A5ED400072989 /* Main_iPhone.storyboard in Resources */,
@@ -418,6 +418,8 @@
 				GCC_PREFIX_HEADER = "ColorGame/ColorGame-Prefix.pch";
 				INFOPLIST_FILE = "ColorGame/ColorGame-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "F16DE991-2452-40D6-93F7-1DFB2F018622";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -427,10 +429,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Tae Keun Lee (XQ99766KQD)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ColorGame/ColorGame-Prefix.pch";
 				INFOPLIST_FILE = "ColorGame/ColorGame-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "F16DE991-2452-40D6-93F7-1DFB2F018622";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
