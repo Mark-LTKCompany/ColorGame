@@ -8,6 +8,7 @@
 
 #import "GameViewController.h"
 #import <AudioToolbox/AudioToolbox.h>
+#import "GameOverViewController.h"
 
 @interface GameViewController ()
 
@@ -129,11 +130,11 @@
     {
         falseanswer1text=arc4random()%7;
     }
-    while(falseanswer2text==trueanswertext)
+    while(falseanswer2text==trueanswertext||falseanswer2text==falseanswer1text)
     {
         falseanswer2text=arc4random()%7;
     }
-    while(falseanswer3text==trueanswertext)
+    while(falseanswer3text==trueanswertext||falseanswer3text==falseanswer2text||falseanswer3text==falseanswer1text)
     {
         falseanswer3text=arc4random()%7;
     }
@@ -374,7 +375,17 @@
 
 - (IBAction)ReturnToMenu
 {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    
+    GameOverViewController *GameOverViewController =
+    [self.storyboard instantiateViewControllerWithIdentifier:@"GameOverViewController"];
+    GameOverViewController.score=scorelabel.text;
+    [self presentViewController:GameOverViewController animated:YES completion:nil];
+    
+    
+    
+    
+    //[self dismissViewControllerAnimated:YES completion:nil];
 }
 
 

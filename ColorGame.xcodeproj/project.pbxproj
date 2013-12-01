@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4426FD34184B38E600C521CA /* GameOverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4426FD33184B38E600C521CA /* GameOverViewController.m */; };
 		44A93489184A5ED300072989 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44A93488184A5ED300072989 /* Foundation.framework */; };
 		44A9348B184A5ED300072989 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44A9348A184A5ED300072989 /* CoreGraphics.framework */; };
 		44A9348D184A5ED300072989 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44A9348C184A5ED300072989 /* UIKit.framework */; };
@@ -37,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4426FD32184B38E600C521CA /* GameOverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOverViewController.h; sourceTree = "<group>"; };
+		4426FD33184B38E600C521CA /* GameOverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOverViewController.m; sourceTree = "<group>"; };
 		44A93485184A5ED300072989 /* ColorGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColorGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44A93488184A5ED300072989 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		44A9348A184A5ED300072989 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -125,10 +128,12 @@
 				44A9349D184A5ED400072989 /* Main_iPad.storyboard */,
 				44A934A0184A5ED400072989 /* ViewController.h */,
 				44A934A1184A5ED400072989 /* ViewController.m */,
-				44A934A3184A5ED400072989 /* Images.xcassets */,
-				44A9348F184A5ED300072989 /* Supporting Files */,
 				44A934C0184A5F0600072989 /* GameViewController.h */,
 				44A934C1184A5F0600072989 /* GameViewController.m */,
+				4426FD32184B38E600C521CA /* GameOverViewController.h */,
+				4426FD33184B38E600C521CA /* GameOverViewController.m */,
+				44A934A3184A5ED400072989 /* Images.xcassets */,
+				44A9348F184A5ED300072989 /* Supporting Files */,
 			);
 			path = ColorGame;
 			sourceTree = "<group>";
@@ -265,6 +270,7 @@
 				44A934C2184A5F0600072989 /* GameViewController.m in Sources */,
 				44A934A2184A5ED400072989 /* ViewController.m in Sources */,
 				44A93499184A5ED400072989 /* AppDelegate.m in Sources */,
+				4426FD34184B38E600C521CA /* GameOverViewController.m in Sources */,
 				44A93495184A5ED400072989 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -484,6 +490,7 @@
 				44A934BC184A5ED400072989 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		44A934BD184A5ED400072989 /* Build configuration list for PBXNativeTarget "ColorGameTests" */ = {
 			isa = XCConfigurationList;
@@ -492,6 +499,7 @@
 				44A934BF184A5ED400072989 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

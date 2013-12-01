@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface GameViewController : UIViewController
 
 @property int time;
@@ -22,6 +23,8 @@
 @property int sort1, sort2, sort3, sort4;
 @property int score;
 @property (weak, nonatomic) IBOutlet UILabel *scorelabel;
+
+
 
 //이렇게 모조리 전역으로 쓰지 않는 방법도 있을 것 같은데...
 /*
