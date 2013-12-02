@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GameCenterManager.h"
 
-@interface GameOverViewController : UIViewController
+@interface GameOverViewController : UIViewController <GKGameCenterControllerDelegate, UIActionSheetDelegate, GameCenterManagerDelegate>
+
 
 @property (weak, nonatomic) IBOutlet UILabel *scorelabel;
 @property (weak, nonatomic) IBOutlet UILabel *highscorelabel;

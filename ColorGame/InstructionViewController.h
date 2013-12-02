@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GameCenterManager.h"
 
-@interface InstructionViewController : UIViewController
+@interface InstructionViewController : UIViewController <GKGameCenterControllerDelegate, UIActionSheetDelegate, GameCenterManagerDelegate>
+- (IBAction)resetAchievements;
 
 @end

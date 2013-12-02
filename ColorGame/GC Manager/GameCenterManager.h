@@ -5,7 +5,6 @@
 //  Copyright (c) 2012 NABZ Software. All rights reserved.
 //
 
-#warning Definition of GameCenterManagerKey is required. Change this value to your own secret key.
 #define kGameCenterManagerKey [@"ColorFrenzy" dataUsingEncoding:NSUTF8StringEncoding]
 
 #define LIBRARY_FOLDER [NSHomeDirectory() stringByAppendingPathComponent:@"Library"]

@@ -449,7 +449,34 @@
 
 - (IBAction)GameOver
 {
-    //Load highscore, compare, and save new highscore if necessary
+    
+    //Achievements and game center high score
+    
+    [[GameCenterManager sharedManager] saveAndReportScore:score leaderboard:@"1" sortOrder:GameCenterSortOrderHighToLow];
+    
+    if(score==-3)
+    {
+        if([[GameCenterManager sharedManager] progressForAchievement:@"Under_Achiever"]!=100)
+        {
+            [[GameCenterManager sharedManager] saveAndReportAchievement:@"Under_Achiever" percentComplete:100 shouldDisplayNotification:YES];
+        }
+    }
+    if(score==0)
+    {
+        if([[GameCenterManager sharedManager] progressForAchievement:@"Risk_Aversion"]!=100)
+        {
+            [[GameCenterManager sharedManager] saveAndReportAchievement:@"Risk_Aversion" percentComplete:100 shouldDisplayNotification:YES];
+        }
+    }
+    if(score==42)
+    {
+        if([[GameCenterManager sharedManager] progressForAchievement:@"Meaning_of_life"]!=100)
+        {
+            [[GameCenterManager sharedManager] saveAndReportAchievement:@"Meaning_of_life" percentComplete:100 shouldDisplayNotification:YES];
+        }
+    }
+    
+    //Load local highscore, compare, and save new highscore if necessary
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSNumber *highscore = [defaults objectForKey:@"scoretosave"];
     if(score>[highscore intValue])
