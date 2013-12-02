@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		4426FD34184B38E600C521CA /* GameOverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4426FD33184B38E600C521CA /* GameOverViewController.m */; };
 		4426FD37184B77A900C521CA /* InstructionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4426FD36184B77A900C521CA /* InstructionViewController.m */; };
+		44A0A176184C9EEB00939AE7 /* GameCenterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A0A174184C9EEB00939AE7 /* GameCenterManager.m */; };
+		44A0E82B184C6AB900CE93E4 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44A0E82A184C6AB900CE93E4 /* GameKit.framework */; };
 		44A93489184A5ED300072989 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44A93488184A5ED300072989 /* Foundation.framework */; };
 		44A9348B184A5ED300072989 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44A9348A184A5ED300072989 /* CoreGraphics.framework */; };
 		44A9348D184A5ED300072989 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44A9348C184A5ED300072989 /* UIKit.framework */; };
@@ -43,6 +45,10 @@
 		4426FD33184B38E600C521CA /* GameOverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOverViewController.m; sourceTree = "<group>"; };
 		4426FD35184B77A900C521CA /* InstructionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstructionViewController.h; sourceTree = "<group>"; };
 		4426FD36184B77A900C521CA /* InstructionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstructionViewController.m; sourceTree = "<group>"; };
+		44A0A173184C9EEB00939AE7 /* AppSpecificValues.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppSpecificValues.h; sourceTree = "<group>"; };
+		44A0A174184C9EEB00939AE7 /* GameCenterManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameCenterManager.m; sourceTree = "<group>"; };
+		44A0A175184C9EEB00939AE7 /* GameCenterManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameCenterManager.h; sourceTree = "<group>"; };
+		44A0E82A184C6AB900CE93E4 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		44A93485184A5ED300072989 /* ColorGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColorGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44A93488184A5ED300072989 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		44A9348A184A5ED300072989 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -73,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44A0E82B184C6AB900CE93E4 /* GameKit.framework in Frameworks */,
 				44A9348B184A5ED300072989 /* CoreGraphics.framework in Frameworks */,
 				44A9348D184A5ED300072989 /* UIKit.framework in Frameworks */,
 				44A93489184A5ED300072989 /* Foundation.framework in Frameworks */,
@@ -114,6 +121,7 @@
 		44A93487184A5ED300072989 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				44A0E82A184C6AB900CE93E4 /* GameKit.framework */,
 				44A93488184A5ED300072989 /* Foundation.framework */,
 				44A9348A184A5ED300072989 /* CoreGraphics.framework */,
 				44A9348C184A5ED300072989 /* UIKit.framework */,
@@ -139,6 +147,9 @@
 				44A9348F184A5ED300072989 /* Supporting Files */,
 				4426FD35184B77A900C521CA /* InstructionViewController.h */,
 				4426FD36184B77A900C521CA /* InstructionViewController.m */,
+				44A0A173184C9EEB00939AE7 /* AppSpecificValues.h */,
+				44A0A174184C9EEB00939AE7 /* GameCenterManager.m */,
+				44A0A175184C9EEB00939AE7 /* GameCenterManager.h */,
 			);
 			path = ColorGame;
 			sourceTree = "<group>";
@@ -275,6 +286,7 @@
 				44A934C2184A5F0600072989 /* GameViewController.m in Sources */,
 				4426FD37184B77A900C521CA /* InstructionViewController.m in Sources */,
 				44A934A2184A5ED400072989 /* ViewController.m in Sources */,
+				44A0A176184C9EEB00939AE7 /* GameCenterManager.m in Sources */,
 				44A93499184A5ED400072989 /* AppDelegate.m in Sources */,
 				4426FD34184B38E600C521CA /* GameOverViewController.m in Sources */,
 				44A93495184A5ED400072989 /* main.m in Sources */,
