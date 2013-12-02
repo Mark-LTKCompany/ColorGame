@@ -23,6 +23,10 @@
 @property int sort1, sort2, sort3, sort4;
 @property int score;
 @property (weak, nonatomic) IBOutlet UILabel *scorelabel;
+@property (weak, nonatomic) IBOutlet UILabel *HP1;
+@property (weak, nonatomic) IBOutlet UILabel *HP2;
+@property (weak, nonatomic) IBOutlet UILabel *HP3;
+@property int health;
 
 
 
@@ -34,7 +38,7 @@
  */
 //아놔... 필요없었다.
 
-- (IBAction)ReturnToMenu;
+- (IBAction)GameOver;
 
 - (IBAction)Opt1;
 - (IBAction)Opt2;

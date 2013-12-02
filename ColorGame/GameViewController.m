@@ -29,6 +29,9 @@
 @synthesize sort1, sort2, sort3, sort4;
 @synthesize score;
 @synthesize scorelabel;
+@synthesize health;
+
+@synthesize HP1, HP2, HP3;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -39,10 +42,10 @@
     return self;
 }
 
-
+//game time
 - (void) awakeFromNib
 {
-    time = 60;
+    time = 50;
 }
 
 
@@ -51,13 +54,16 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    //timer api
     gametimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updatetime) userInfo:nil repeats:YES];
     timer.text = [NSString stringWithFormat:@"%i", time];
     [self GameLogic];
     score=0;
     scorelabel.text=[NSString stringWithFormat:@"%i", score];
+    health=3;
 }
 
+//timer logic
 - (void) updatetime
 {
     time = time - 1;
@@ -67,13 +73,14 @@
         
         //INSERT GAME OVER CODE
         
-        [self ReturnToMenu];
+        [self GameOver];
         
         
     }
     
     timer.text = [NSString stringWithFormat:@"%i", time];
 }
+
 
 - (void) GameLogic
 {
@@ -274,6 +281,22 @@
     {
         score--;
         AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
+        if(health==1)
+        {
+            HP1.text=@"";
+            health--;
+            [self GameOver];
+        }
+        else if(health==2)
+        {
+            HP2.text=@"";
+            health--;
+        }
+        else if(health==3)
+        {
+            HP3.text=@"";
+            health--;
+        }
     }
     scorelabel.text=[NSString stringWithFormat:@"%i", score];
     [self GameLogic];
@@ -287,6 +310,23 @@
     {
         score--;
         AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
+        if(health==1)
+        {
+            HP1.text=@"";
+            health--;
+            [self GameOver];
+        }
+        else if(health==2)
+        {
+            HP2.text=@"";
+            health--;
+        }
+        else if(health==3)
+        {
+            HP3.text=@"";
+            health--;
+        }
+
     }
     scorelabel.text=[NSString stringWithFormat:@"%i", score];
     [self GameLogic];
@@ -300,6 +340,23 @@
     {
         score--;
         AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
+        if(health==1)
+        {
+            HP1.text=@"";
+            health--;
+            [self GameOver];
+        }
+        else if(health==2)
+        {
+            HP2.text=@"";
+            health--;
+        }
+        else if(health==3)
+        {
+            HP3.text=@"";
+            health--;
+        }
+
     }
     
     scorelabel.text=[NSString stringWithFormat:@"%i", score];
@@ -314,6 +371,23 @@
     {
         score--;
         AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
+        if(health==1)
+        {
+            HP1.text=@"";
+            health--;
+            [self GameOver];
+        }
+        else if(health==2)
+        {
+            HP2.text=@"";
+            health--;
+        }
+        else if(health==3)
+        {
+            HP3.text=@"";
+            health--;
+        }
+
     }
     scorelabel.text=[NSString stringWithFormat:@"%i", score];
     [self GameLogic];
@@ -373,16 +447,14 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)ReturnToMenu
+- (IBAction)GameOver
 {
     
     
     GameOverViewController *GameOverViewController =
     [self.storyboard instantiateViewControllerWithIdentifier:@"GameOverViewController"];
-    GameOverViewController.score=scorelabel.text;
+    GameOverViewController.score=[NSString stringWithFormat:@"%i", score];
     [self presentViewController:GameOverViewController animated:YES completion:nil];
-    
-    
     
     
     //[self dismissViewControllerAnimated:YES completion:nil];
