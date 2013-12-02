@@ -68,7 +68,7 @@
 - (void) dealloc
 {
 	self.earnedAchievementCache= NULL;
-	[super dealloc];
+	//[super dealloc];
 }
 
 
@@ -149,7 +149,7 @@
 
 - (void) reloadHighScoresForCategory: (NSString*) category
 {
-	GKLeaderboard* leaderBoard= [[[GKLeaderboard alloc] init] autorelease];
+	GKLeaderboard* leaderBoard= [[GKLeaderboard alloc] init];
 	leaderBoard.category= category;
 	leaderBoard.timeScope= GKLeaderboardTimeScopeAllTime;
 	leaderBoard.range= NSMakeRange(1, 1);
@@ -162,7 +162,7 @@
 
 - (void) reportScore: (int64_t) score forCategory: (NSString*) category 
 {
-	GKScore *scoreReporter = [[[GKScore alloc] initWithCategory:category] autorelease];	
+	GKScore *scoreReporter = [[GKScore alloc] initWithCategory:category];
 	scoreReporter.value = score;
 	[scoreReporter reportScoreWithCompletionHandler: ^(NSError *error) 
 	 {
@@ -214,7 +214,7 @@
 		}
 		else
 		{
-			achievement= [[[GKAchievement alloc] initWithIdentifier: identifier] autorelease];
+			achievement= [[GKAchievement alloc] initWithIdentifier: identifier];
 			achievement.percentComplete= percentComplete;
 			//Add achievement to achievement cache...
 			[self.earnedAchievementCache setObject: achievement forKey: achievement.identifier];

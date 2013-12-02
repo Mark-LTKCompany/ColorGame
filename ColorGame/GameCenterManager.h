@@ -72,7 +72,7 @@
 //This property must be attomic to ensure that the cache is always in a viable state...
 @property (retain) NSMutableDictionary* earnedAchievementCache;
 
-@property (nonatomic, assign)  id <GameCenterManagerDelegate> delegate;
+@property (nonatomic, retain)  id <GameCenterManagerDelegate, NSObject> delegate;
 
 + (BOOL) isGameCenterAvailable;
 
