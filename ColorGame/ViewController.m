@@ -30,14 +30,15 @@
 
 - (IBAction)Achievementlabel:(id)sender {
 
-        GKAchievementViewController *achievements = [[GKAchievementViewController alloc] init];
-        if (achievements != NULL)
-        {
-            achievements.achievementDelegate = self;
-            [self presentViewController:achievements animated:YES completion:nil];
-        }
-    
+    GKAchievementViewController *achievements = [[GKAchievementViewController alloc] init];
+    if (achievements != NULL)
+    {
+        achievements.achievementDelegate = self;
+        [self presentViewController:achievements animated:YES completion:nil];
+    }
+
 }
+
 - (void)achievementViewControllerDidFinish:(GKAchievementViewController *)viewController;
 {
     [self dismissViewControllerAnimated:YES completion:nil];

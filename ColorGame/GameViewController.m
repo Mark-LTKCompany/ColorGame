@@ -334,6 +334,10 @@
 
     }
     scorelabel.text=[NSString stringWithFormat:@"%i", score];
+    if(score==42)
+    {
+        [[GameCenterManager sharedGameCenterManager] submitAchievement:kAchievement_Meaing_of_life percentComplete:100.f];
+    }
     [self GameLogic];
 }
 
@@ -365,6 +369,10 @@
     }
     
     scorelabel.text=[NSString stringWithFormat:@"%i", score];
+    if(score==42)
+    {
+        [[GameCenterManager sharedGameCenterManager] submitAchievement:kAchievement_Meaing_of_life percentComplete:100.f];
+    }
     [self GameLogic];
 }
 
@@ -395,6 +403,10 @@
 
     }
     scorelabel.text=[NSString stringWithFormat:@"%i", score];
+    if(score==42)
+    {
+        [[GameCenterManager sharedGameCenterManager] submitAchievement:kAchievement_Meaing_of_life percentComplete:100.f];
+    }
     [self GameLogic];
 }
 
