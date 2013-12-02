@@ -30,6 +30,8 @@
         [_player play];
     }
     
+    [[GameCenterManager sharedManager] initGameCenter];
+    
     return YES;
 }
 							
