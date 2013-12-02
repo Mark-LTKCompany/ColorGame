@@ -18,12 +18,30 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)Achievementlabel:(id)sender {
+
+        GKAchievementViewController *achievements = [[GKAchievementViewController alloc] init];
+        if (achievements != NULL)
+        {
+            achievements.achievementDelegate = self;
+            [self presentViewController:achievements animated:YES completion:nil];
+        }
+    
+}
+- (void)achievementViewControllerDidFinish:(GKAchievementViewController *)viewController;
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
 }
 
 @end

@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GameCenterManager.h"
 
 @interface ViewController : UIViewController
 
+- (IBAction)Achievementlabel:(id)sender;
 
 @end

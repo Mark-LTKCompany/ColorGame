@@ -38,6 +38,16 @@
                                     <segue destination="hUw-k9-bNs" kind="modal" modalTransitionStyle="crossDissolve" id="VL1-6a-u9f"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Xe-e7-tec">
+                                <rect key="frame" x="90" y="292" width="141" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Achievement center">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="Achievementlabel:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="qEk-Bi-Mvl"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -309,7 +319,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="YXW-SZ-tW6"/>
         <segue reference="8J5-w3-9is"/>
+        <segue reference="uax-fc-GiV"/>
     </inferredMetricsTieBreakers>
 </document>

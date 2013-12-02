@@ -10,6 +10,7 @@
 #import <AudioToolbox/AudioToolbox.h>
 #import "GameOverViewController.h"
 
+
 @interface GameViewController ()
 
 @end
@@ -299,6 +300,10 @@
         }
     }
     scorelabel.text=[NSString stringWithFormat:@"%i", score];
+    if(score==42)
+    {
+    [[GameCenterManager sharedGameCenterManager] submitAchievement:kAchievement_Meaing_of_life percentComplete:100.f];
+    }
     [self GameLogic];
 }
 
@@ -449,6 +454,14 @@
 
 - (IBAction)GameOver
 {
+    if(score==-3)
+    {
+        [[GameCenterManager sharedGameCenterManager] submitAchievement:kAchievement_Under_Achiever percentComplete:100.f];
+    }
+    if(score==0)
+    {
+        [[GameCenterManager sharedGameCenterManager] submitAchievement:kAchievement_Risk_Aversion percentComplete:100.f];
+    }
     //Load highscore, compare, and save new highscore if necessary
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSNumber *highscore = [defaults objectForKey:@"scoretosave"];
@@ -459,6 +472,7 @@
         [defaults synchronize];
         //without the code below, the highscore will only be updated next time, because NSNumber highscore is based on previous value
         highscore = [NSNumber numberWithInt:score];
+        [[GameCenterManager sharedGameCenterManager] submitScore:self.score forLeaderboard:kLeaderboard_1];
     }
     
     GameOverViewController *GameOverViewController =

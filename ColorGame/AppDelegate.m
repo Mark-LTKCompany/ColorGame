@@ -30,6 +30,8 @@
         [_player play];
     }
     
+    [[GameCenterManager sharedGameCenterManager] authenticateLocalUser];
+    
     return YES;
 }
 							
