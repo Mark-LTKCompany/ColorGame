@@ -18,6 +18,8 @@
 
 @synthesize scorelabel;
 @synthesize score;
+@synthesize highscorelabel;
+@synthesize highscore;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -37,6 +39,7 @@
 	// Do any additional setup after loading the view.
     
     scorelabel.text=score;
+    highscorelabel.text=[NSString stringWithFormat:@"%i", highscore];
     
     
 }

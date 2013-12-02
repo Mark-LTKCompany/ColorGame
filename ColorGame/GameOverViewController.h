@@ -11,6 +11,7 @@
 @interface GameOverViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UILabel *scorelabel;
+@property (weak, nonatomic) IBOutlet UILabel *highscorelabel;
 @property NSString* score;
-
+@property int highscore;
 @end

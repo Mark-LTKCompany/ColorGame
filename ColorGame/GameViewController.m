@@ -449,11 +449,22 @@
 
 - (IBAction)GameOver
 {
-    
+    //Load highscore, compare, and save new highscore if necessary
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSNumber *highscore = [defaults objectForKey:@"scoretosave"];
+    if(score>[highscore intValue])
+    {
+        NSNumber *scoretosave=[NSNumber numberWithInt:score];
+        [defaults setObject:scoretosave forKey:@"scoretosave"];
+        [defaults synchronize];
+        //without the code below, the highscore will only be updated next time, because NSNumber highscore is based on previous value
+        highscore = [NSNumber numberWithInt:score];
+    }
     
     GameOverViewController *GameOverViewController =
     [self.storyboard instantiateViewControllerWithIdentifier:@"GameOverViewController"];
     GameOverViewController.score=[NSString stringWithFormat:@"%i", score];
+    GameOverViewController.highscore=[highscore intValue];
     [self presentViewController:GameOverViewController animated:YES completion:nil];
     
     
