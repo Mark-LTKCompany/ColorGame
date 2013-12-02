@@ -106,7 +106,7 @@
         tTextLabel.textAlignment = NSTextAlignmentCenter;
         tTextLabel.backgroundColor = [UIColor clearColor];
         tTextLabel.textColor = [UIColor whiteColor];
-        tTextLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:15.0f];
+        tTextLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:19.0f];
         tTextLabel.text = NSLocalizedString(@"Achievement Unlocked", @"Achievemnt Unlocked Message");
         self.textLabel = tTextLabel;
         //[tTextLabel release];

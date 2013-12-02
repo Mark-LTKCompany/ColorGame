@@ -331,6 +331,7 @@
             HP3.text=@"";
             health--;
         }
+        
 
     }
     scorelabel.text=[NSString stringWithFormat:@"%i", score];

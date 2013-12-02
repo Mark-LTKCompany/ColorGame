@@ -239,17 +239,30 @@ compare:v options:NSNumericSearch] == NSOrderedAscending)
 	}
 }
 
+
 - (void) achievementReportResponse:(GKAchievement*)achievement error:(NSError*)error {
     if(error == NULL) {
         if(self.earnedAchievementCache != NULL) {
             NSString *identifier = achievement.identifier;
             
             GKAchievement* achievement = [self.earnedAchievementCache objectForKey: identifier];
+            achievement.showsCompletionBanner=TRUE;
             if(achievement != NULL) {
                 float percentComplete = achievement.percentComplete;
                 
                 if(percentComplete >= 100.0) {
-                    [[GKAchievementHandler defaultHandler] notifyAchievementTitle:NSLocalizedString(@"kAchievement_Title", "kAchievement_Title") andMessage:NSLocalizedString(identifier, "Achievement description")];
+                    if ([identifier isEqual:@"Under_Achiever"])
+                    {
+                        [[GKAchievementHandler defaultHandler] notifyAchievementTitle:NSLocalizedString(@"Under Achiever", "kAchievement_Title") andMessage:nil];
+                    }
+                    else if([identifier isEqual:@"Meaning_of_life"])
+                    {
+                        [[GKAchievementHandler defaultHandler] notifyAchievementTitle:NSLocalizedString(@"Meaning of life", "kAchievement_Title") andMessage:nil];
+                    }
+                    else if([identifier isEqual:@"Risk_Aversion"])
+                    {
+                        [[GKAchievementHandler defaultHandler] notifyAchievementTitle:NSLocalizedString(@"Risk Aversion", "kAchievement_Title") andMessage:nil];
+                    }
                 }
             }
         }
