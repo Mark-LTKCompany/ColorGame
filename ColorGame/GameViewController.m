@@ -20,7 +20,7 @@
 @synthesize gametimer;
 @synthesize timer;
 @synthesize frenzylogic, frenzylogictimer;
-@synthesize realR, realG, realB, Ra, Ga, Ba, Rv, Gv, Bv, directionB,directionG,directionR;
+@synthesize realR, realG, realB, Ra, Ga, Ba, Rv, Gv, Bv, directionB,directionG,directionR,directionRv,directionGv,directionBv;
 
 @synthesize question;
 @synthesize Opt1setting;
@@ -66,7 +66,15 @@
     score=0;
     scorelabel.text=[NSString stringWithFormat:@"%i", score];
     health=3;
+    
+    //If settings are enabled, use frenzy mode
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSNumber *FrenzySetting = [defaults objectForKey:@"FrenzySetting"];
+    
+    if([FrenzySetting intValue]==1)
+    {
     frenzylogictimer = [NSTimer scheduledTimerWithTimeInterval:0.03 target:self selector:@selector(frenzytime) userInfo:nil repeats:YES];
+    }
 }
 
 //timer logic
@@ -96,55 +104,74 @@
         [frenzylogictimer invalidate];
     }
     
-    /*
+    
     float a=arc4random()%1000;
     float b=arc4random()%1000;
     float c=arc4random()%1000;
-    Ra+=a/10000;
-    Ga+=b/10000;
-    Ba+=c/10000;
     
-    Rv=Ra;
-    Gv=Ga;
-    Bv=Ba;
+    if(Ra>=0.01)
+        directionRv=1;
+    if(Ra<=0.001)
+        directionRv=0;
+    if(directionRv==0)
+        Ra+=a/1000000;
+    if(directionRv==1)
+        Ra-=a/1000000;
     
-    if(Rv>1)
-        Rv=0;
-    if(Gv>1)
-        Gv=0;
-    if(Bv>1)
-        Bv=0;
+    if(Ga>=0.01)
+        directionGv=1;
+    if(Ga<=0.001)
+        directionGv=0;
+    if(directionGv==0)
+        Ga+=b/1000000;
+    if(directionGv==1)
+        Ga-=b/1000000;
+    
+    if(Ba>=0.01)
+        directionBv=1;
+    if(Ba<=0.001)
+        directionBv=0;
+    if(directionBv==0)
+        Ba+=c/1000000;
+    if(directionBv==1)
+        Ba-=c/1000000;
+    
+    Rv=Ra*0.7;
+    Gv=Ga*0.8;
+    Bv=Ba*0.9;
+    
+    
     
     if(realR>=0.9)
         directionR=1;
     if(realR<=0.1)
         directionR=0;
     if(directionR==0)
-        realR+=(Rv/sqrt(Rv*Rv+Gv*Gv+Ba*Ba)/100);
+        realR+=Rv;
     if(directionR==1)
-        realR-=(Rv/sqrt(Rv*Rv+Gv*Gv+Ba*Ba)/100);
+        realR-=Rv;
     
     if(realG>=0.9)
         directionG=1;
     if(realG<=0.1)
         directionG=0;
     if(directionG==0)
-        realG+=(Gv/sqrt(Rv*Rv+Gv*Gv+Ba*Ba)/100);
+        realG+=Gv;
     if(directionG==1)
-        realG-=(Gv/sqrt(Rv*Rv+Gv*Gv+Ba*Ba)/100);
+        realG-=Gv;
     
     if(realB>=0.9)
         directionB=1;
     if(realB<=0.1)
         directionB=0;
     if(directionB==0)
-        realB+=(Bv/sqrt(Rv*Rv+Gv*Gv+Ba*Ba)/100);
+        realB+=Bv;
     if(directionG==1)
-        realB-=(Bv/sqrt(Rv*Rv+Gv*Gv+Ba*Ba)/100);
+        realB-=Bv;
     
     
     self.view.backgroundColor=[UIColor colorWithRed:realR green:realG blue:realB alpha:1];
-     */
+    
 
 }
 

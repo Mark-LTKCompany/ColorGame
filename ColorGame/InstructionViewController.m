@@ -14,6 +14,8 @@
 
 @implementation InstructionViewController
 
+@synthesize Frenzylabelstate;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -27,6 +29,13 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSNumber *FrenzySetting = [defaults objectForKey:@"FrenzySetting"];
+    if([FrenzySetting intValue]==1)
+        Frenzylabelstate.on=YES;
+    else
+        Frenzylabelstate.on=NO;
 }
 
 - (void)didReceiveMemoryWarning
@@ -54,6 +63,26 @@
             if (error) NSLog(@"Error Resetting Achievements: %@", error);
         }];
     }
+}
+- (IBAction)FRENZYlabel:(id)sender {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSNumber *FrenzySetting = [defaults objectForKey:@"FrenzySetting"];
+    
+    if([FrenzySetting intValue]==1)
+    {
+        FrenzySetting=[NSNumber numberWithInt:0];
+        [defaults setObject:FrenzySetting
+                     forKey:@"FrenzySetting"];
+        [defaults synchronize];
+    }
+    else
+    {
+        FrenzySetting=[NSNumber numberWithInt:1];
+        [defaults setObject:FrenzySetting
+                     forKey:@"FrenzySetting"];
+        [defaults synchronize];
+    }
+
 }
 
 @end

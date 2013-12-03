@@ -16,7 +16,7 @@
 @property NSTimer *gametimer;
 @property int frenzylogic;
 @property NSTimer *frenzylogictimer;
-@property float realR, realG, realB, Ra, Ga, Ba, Rv, Gv, Bv, directionR, directionG, directionB;
+@property float realR, realG, realB, Ra, Ga, Ba, Rv, Gv, Bv, directionR, directionG, directionB, directionRv, directionGv, directionBv;
 
 @property (weak, nonatomic) IBOutlet UILabel *timer;
 @property (weak, nonatomic) IBOutlet UILabel *question;

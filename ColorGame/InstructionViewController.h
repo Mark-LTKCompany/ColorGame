@@ -11,5 +11,6 @@
 
 @interface InstructionViewController : UIViewController <GKGameCenterControllerDelegate, UIActionSheetDelegate, GameCenterManagerDelegate>
 - (IBAction)resetAchievements;
+@property (weak, nonatomic) IBOutlet UISwitch *Frenzylabelstate;
 
 @end
