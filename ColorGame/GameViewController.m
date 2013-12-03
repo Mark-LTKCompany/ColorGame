@@ -337,15 +337,15 @@
     [Opt2setting setHidden:NO];
     [Opt3setting setHidden:NO];
     [Opt4setting setHidden:NO];
-    /*
+    
     int bg=arc4random()%7;
     while(bg==randomcolor||bg==trueanswercolor||bg==falseanswer1color||bg==falseanswer2color||bg==falseanswer3color)
     {
-        bg=arc4random()&7;
+        bg=arc4random()%7;
     }
     
     self.view.backgroundColor = [self ReturnColorValue:bg];
-     */
+    
 }
 
 
