@@ -64,7 +64,9 @@
 }
 
 - (IBAction)Gamecenterlabel:(id)sender {
-
+    
+    [[GameCenterManager sharedManager] checkGameCenterAvailability];
+    
     GKGameCenterViewController *leaderboardViewController = [[GKGameCenterViewController alloc] init];
     leaderboardViewController.viewState = GKGameCenterViewControllerStateLeaderboards;
     leaderboardViewController.gameCenterDelegate = self;

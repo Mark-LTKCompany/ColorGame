@@ -19,6 +19,8 @@
 @synthesize time;
 @synthesize gametimer;
 @synthesize timer;
+@synthesize frenzylogic, frenzylogictimer;
+@synthesize realR, realG, realB, Ra, Ga, Ba, Rv, Gv, Bv, directionB,directionG,directionR;
 
 @synthesize question;
 @synthesize Opt1setting;
@@ -46,6 +48,7 @@
 - (void) awakeFromNib
 {
     time = 50;
+    frenzylogic=0;
 }
 
 
@@ -54,6 +57,8 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    realR=0, realG=0, realB=0, Ra=0, Ga=0, Ba=0, Rv=0, Gv=0, Bv=0;
+    
     //timer api
     gametimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updatetime) userInfo:nil repeats:YES];
     timer.text = [NSString stringWithFormat:@"%i", time];
@@ -61,6 +66,7 @@
     score=0;
     scorelabel.text=[NSString stringWithFormat:@"%i", score];
     health=3;
+    frenzylogictimer = [NSTimer scheduledTimerWithTimeInterval:0.03 target:self selector:@selector(frenzytime) userInfo:nil repeats:YES];
 }
 
 //timer logic
@@ -79,6 +85,67 @@
     }
     
     timer.text = [NSString stringWithFormat:@"%i", time];
+}
+
+- (void) frenzytime
+{
+    
+    frenzylogic = frenzylogic + 1;
+    if (time <=0)
+    {
+        [frenzylogictimer invalidate];
+    }
+    
+    /*
+    float a=arc4random()%1000;
+    float b=arc4random()%1000;
+    float c=arc4random()%1000;
+    Ra+=a/10000;
+    Ga+=b/10000;
+    Ba+=c/10000;
+    
+    Rv=Ra;
+    Gv=Ga;
+    Bv=Ba;
+    
+    if(Rv>1)
+        Rv=0;
+    if(Gv>1)
+        Gv=0;
+    if(Bv>1)
+        Bv=0;
+    
+    if(realR>=0.9)
+        directionR=1;
+    if(realR<=0.1)
+        directionR=0;
+    if(directionR==0)
+        realR+=(Rv/sqrt(Rv*Rv+Gv*Gv+Ba*Ba)/100);
+    if(directionR==1)
+        realR-=(Rv/sqrt(Rv*Rv+Gv*Gv+Ba*Ba)/100);
+    
+    if(realG>=0.9)
+        directionG=1;
+    if(realG<=0.1)
+        directionG=0;
+    if(directionG==0)
+        realG+=(Gv/sqrt(Rv*Rv+Gv*Gv+Ba*Ba)/100);
+    if(directionG==1)
+        realG-=(Gv/sqrt(Rv*Rv+Gv*Gv+Ba*Ba)/100);
+    
+    if(realB>=0.9)
+        directionB=1;
+    if(realB<=0.1)
+        directionB=0;
+    if(directionB==0)
+        realB+=(Bv/sqrt(Rv*Rv+Gv*Gv+Ba*Ba)/100);
+    if(directionG==1)
+        realB-=(Bv/sqrt(Rv*Rv+Gv*Gv+Ba*Ba)/100);
+    
+    
+    self.view.backgroundColor=[UIColor colorWithRed:realR green:realG blue:realB alpha:1];
+     */
+
 }
 
 
@@ -270,6 +337,15 @@
     [Opt2setting setHidden:NO];
     [Opt3setting setHidden:NO];
     [Opt4setting setHidden:NO];
+    /*
+    int bg=arc4random()%7;
+    while(bg==randomcolor||bg==trueanswercolor||bg==falseanswer1color||bg==falseanswer2color||bg==falseanswer3color)
+    {
+        bg=arc4random()&7;
+    }
+    
+    self.view.backgroundColor = [self ReturnColorValue:bg];
+     */
 }
 
 
