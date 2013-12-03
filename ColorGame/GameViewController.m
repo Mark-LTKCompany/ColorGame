@@ -456,6 +456,7 @@
     
     if(score==-3)
     {
+        [[GameCenterManager sharedManager] saveAndReportAchievement:@"Under_Achiever" percentComplete:100 shouldDisplayNotification:NO];
         if([[GameCenterManager sharedManager] progressForAchievement:@"Under_Achiever"]!=100)
         {
             [[GameCenterManager sharedManager] saveAndReportAchievement:@"Under_Achiever" percentComplete:100 shouldDisplayNotification:YES];
@@ -463,6 +464,7 @@
     }
     if(score==0)
     {
+        [[GameCenterManager sharedManager] saveAndReportAchievement:@"Risk_Aversion" percentComplete:100 shouldDisplayNotification:NO];
         if([[GameCenterManager sharedManager] progressForAchievement:@"Risk_Aversion"]!=100)
         {
             [[GameCenterManager sharedManager] saveAndReportAchievement:@"Risk_Aversion" percentComplete:100 shouldDisplayNotification:YES];
@@ -470,6 +472,7 @@
     }
     if(score==42)
     {
+        [[GameCenterManager sharedManager] saveAndReportAchievement:@"Meaning_of_life" percentComplete:100 shouldDisplayNotification:NO];
         if([[GameCenterManager sharedManager] progressForAchievement:@"Meaning_of_life"]!=100)
         {
             [[GameCenterManager sharedManager] saveAndReportAchievement:@"Meaning_of_life" percentComplete:100 shouldDisplayNotification:YES];
