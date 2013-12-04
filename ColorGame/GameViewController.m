@@ -71,6 +71,8 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSNumber *FrenzySetting = [defaults objectForKey:@"FrenzySetting"];
     
+    realR=1, realG=1, realB=1;
+    
     if([FrenzySetting intValue]==1)
     {
     frenzylogictimer = [NSTimer scheduledTimerWithTimeInterval:0.03 target:self selector:@selector(frenzytime) userInfo:nil repeats:YES];
