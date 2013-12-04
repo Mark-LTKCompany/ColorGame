@@ -18,6 +18,8 @@
 @synthesize statusDetailLabel, actionLabel, actionBarLabel;
 @synthesize playerPicture, playerName, playerStatus;
 
+@synthesize Frenzylabel;
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -25,6 +27,20 @@
     
     [[GameCenterManager sharedManager] setDelegate:self];
     [[GameCenterManager sharedManager] initGameCenter];
+    
+    //If Frenzy mode is enabled, show frenzy mode indicator
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSNumber *FrenzySetting = [defaults objectForKey:@"FrenzySetting"];
+    if([FrenzySetting intValue]==1)
+    {
+        Frenzylabel.transform = CGAffineTransformMakeRotation(-10*M_PI / 180.0);
+        Frenzylabel.hidden=NO;
+    }
+    else
+    {
+        Frenzylabel.hidden=YES;
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {

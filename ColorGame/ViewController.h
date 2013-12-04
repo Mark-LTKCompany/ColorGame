@@ -20,5 +20,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *playerStatus;
 
 - (IBAction)Gamecenterlabel:(id)sender;
+@property (weak, nonatomic) IBOutlet UILabel *Frenzylabel;
 
 @end
