@@ -561,27 +561,43 @@
     
     if(score==-3)
     {
-        [[GameCenterManager sharedManager] saveAndReportAchievement:@"Under_Achiever" percentComplete:100 shouldDisplayNotification:NO];
-        if([[GameCenterManager sharedManager] progressForAchievement:@"Under_Achiever"]!=100)
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSNumber *under_achiever = [defaults objectForKey:@"Under_Achiever"];
+        if([[GameCenterManager sharedManager] progressForAchievement:@"Under_Achiever"]!=100||[under_achiever intValue]!=1)
         {
             [[GameCenterManager sharedManager] saveAndReportAchievement:@"Under_Achiever" percentComplete:100 shouldDisplayNotification:YES];
         }
+        [[GameCenterManager sharedManager] saveAndReportAchievement:@"Under_Achiever" percentComplete:100 shouldDisplayNotification:NO];
+        under_achiever=[NSNumber numberWithInt:1];
+        [defaults setObject:under_achiever forKey:@"Under_Achiever"];
+        [defaults synchronize];
+        
     }
     if(score==0)
     {
-        [[GameCenterManager sharedManager] saveAndReportAchievement:@"Risk_Aversion" percentComplete:100 shouldDisplayNotification:NO];
-        if([[GameCenterManager sharedManager] progressForAchievement:@"Risk_Aversion"]!=100)
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSNumber *risk_aversion = [defaults objectForKey:@"Risk_Aversion"];
+        if([[GameCenterManager sharedManager] progressForAchievement:@"Risk_Aversion"]!=100||[risk_aversion intValue]!=1)
         {
             [[GameCenterManager sharedManager] saveAndReportAchievement:@"Risk_Aversion" percentComplete:100 shouldDisplayNotification:YES];
         }
+        [[GameCenterManager sharedManager] saveAndReportAchievement:@"Risk_Aversion" percentComplete:100 shouldDisplayNotification:NO];
+        risk_aversion=[NSNumber numberWithInt:1];
+        [defaults setObject:risk_aversion forKey:@"Risk_Aversion"];
+        [defaults synchronize];
     }
     if(score==42)
     {
-        [[GameCenterManager sharedManager] saveAndReportAchievement:@"Meaning_of_life" percentComplete:100 shouldDisplayNotification:NO];
-        if([[GameCenterManager sharedManager] progressForAchievement:@"Meaning_of_life"]!=100)
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSNumber *meaning_of_life = [defaults objectForKey:@"Meaning_of_life"];
+        if([[GameCenterManager sharedManager] progressForAchievement:@"Meaning_of_life"]!=100||[meaning_of_life intValue]!=1)
         {
             [[GameCenterManager sharedManager] saveAndReportAchievement:@"Meaning_of_life" percentComplete:100 shouldDisplayNotification:YES];
         }
+        [[GameCenterManager sharedManager] saveAndReportAchievement:@"Meaning_of_life" percentComplete:100 shouldDisplayNotification:NO];
+        meaning_of_life=[NSNumber numberWithInt:1];
+        [defaults setObject:meaning_of_life forKey:@"Risk_Aversion"];
+        [defaults synchronize];
     }
     
     //Load local highscore, compare, and save new highscore if necessary
