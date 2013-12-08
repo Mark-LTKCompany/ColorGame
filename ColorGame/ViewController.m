@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "GameViewController.h"
 
 @interface ViewController ()
 
@@ -41,7 +42,91 @@
     {
         Frenzylabel.hidden=YES;
     }
+    
+    if([FrenzySetting intValue]==1)
+    {
+        realR=1;
+        realG=1;
+        realB=1;
+        frenzylogictimer = [NSTimer scheduledTimerWithTimeInterval:0.03 target:self selector:@selector(frenzytime) userInfo:nil repeats:YES];
+    }
+
 }
+
+- (void) frenzytime
+{
+    
+    
+    float a=arc4random()%1000;
+    float b=arc4random()%1000;
+    float c=arc4random()%1000;
+    
+    if(Ra>=0.01)
+        directionRv=1;
+    if(Ra<=0.008)
+        directionRv=0;
+    if(directionRv==0)
+        Ra+=a/1000000;
+    if(directionRv==1)
+        Ra-=a/1000000;
+    
+    if(Ga>=0.01)
+        directionGv=1;
+    if(Ga<=0.008)
+        directionGv=0;
+    if(directionGv==0)
+        Ga+=b/1000000;
+    if(directionGv==1)
+        Ga-=b/1000000;
+    
+    if(Ba>=0.01)
+        directionBv=1;
+    if(Ba<=0.008)
+        directionBv=0;
+    if(directionBv==0)
+        Ba+=c/1000000;
+    if(directionBv==1)
+        Ba-=c/1000000;
+    
+    Rv=Ra*0.7;
+    Gv=Ga*0.8;
+    Bv=Ba*0.9;
+    
+    
+    
+    if(realR>=0.9)
+        directionR=1;
+    if(realR<=0.1)
+        directionR=0;
+    if(directionR==0)
+        realR+=Rv;
+    if(directionR==1)
+        realR-=Rv;
+    
+    if(realG>=0.9)
+        directionG=1;
+    if(realG<=0.1)
+        directionG=0;
+    if(directionG==0)
+        realG+=Gv;
+    if(directionG==1)
+        realG-=Gv;
+    
+    if(realB>=0.9)
+        directionB=1;
+    if(realB<=0.1)
+        directionB=0;
+    if(directionB==0)
+        realB+=Bv;
+    if(directionG==1)
+        realB-=Bv;
+    
+    
+    self.view.backgroundColor=[UIColor colorWithRed:realR green:realG blue:realB alpha:1];
+    
+    
+}
+
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
@@ -70,6 +155,19 @@
     } else {
         actionBarLabel.title = [NSString stringWithFormat:@"No GameCenter player found."];
     }
+}
+
+- (IBAction)startGame:(id)sender
+{
+    GameViewController *GameViewController =
+    [self.storyboard instantiateViewControllerWithIdentifier:@"GameViewController"];
+    GameViewController.modalTransitionStyle=UIModalTransitionStyleCrossDissolve;
+    GameViewController.realR=realR;
+    GameViewController.realG=realG;
+    GameViewController.realB=realB;
+    [frenzylogictimer invalidate];
+    [self presentViewController:GameViewController animated:YES completion:nil];
+    
 }
 
 

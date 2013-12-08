@@ -25,7 +25,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="ErE-bC-hfn" kind="modal" modalTransitionStyle="crossDissolve" id="uax-fc-GiV"/>
+                                    <action selector="startGame:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="PFP-1L-r4t"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fdA-4i-84r">
@@ -144,7 +144,7 @@
         <!--Game View Controller-->
         <scene sceneID="zBv-ta-Vez">
             <objects>
-                <viewController id="ErE-bC-hfn" customClass="GameViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GameViewController" id="ErE-bC-hfn" customClass="GameViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9Ss-Wf-LgQ"/>
                         <viewControllerLayoutGuide type="bottom" id="TPa-wd-BIq"/>
@@ -369,6 +369,5 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="8du-P8-DMb"/>
-        <segue reference="uax-fc-GiV"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -10,6 +10,10 @@
 #import "GameCenterManager.h"
 
 @interface ViewController : UIViewController <GKGameCenterControllerDelegate, UIActionSheetDelegate, GameCenterManagerDelegate>
+{
+    NSTimer *frenzylogictimer;
+    float realR, realG, realB, Ra, Ga, Ba, Rv, Gv, Bv, directionB,directionG,directionR,directionRv,directionGv,directionBv;
+}
 
 @property (strong, nonatomic) IBOutlet UILabel *statusDetailLabel;
 @property (weak, nonatomic) IBOutlet UILabel *actionLabel;

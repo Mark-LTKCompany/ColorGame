@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		441F5CCB1854957E0070D69A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A934A1184A5ED400072989 /* ViewController.m */; };
 		4426FD34184B38E600C521CA /* GameOverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4426FD33184B38E600C521CA /* GameOverViewController.m */; };
 		4426FD37184B77A900C521CA /* InstructionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4426FD36184B77A900C521CA /* InstructionViewController.m */; };
 		44A0A19A184CFD3500939AE7 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44A0A199184CFD3500939AE7 /* GameKit.framework */; };
@@ -25,7 +26,6 @@
 		44A93499184A5ED400072989 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A93498184A5ED400072989 /* AppDelegate.m */; };
 		44A9349C184A5ED400072989 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44A9349A184A5ED400072989 /* Main_iPhone.storyboard */; };
 		44A9349F184A5ED400072989 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44A9349D184A5ED400072989 /* Main_iPad.storyboard */; };
-		44A934A2184A5ED400072989 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A934A1184A5ED400072989 /* ViewController.m */; };
 		44A934A4184A5ED400072989 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44A934A3184A5ED400072989 /* Images.xcassets */; };
 		44A934AB184A5ED400072989 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44A934AA184A5ED400072989 /* XCTest.framework */; };
 		44A934AC184A5ED400072989 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44A93488184A5ED300072989 /* Foundation.framework */; };
@@ -315,10 +315,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				441F5CCB1854957E0070D69A /* ViewController.m in Sources */,
 				44A934C2184A5F0600072989 /* GameViewController.m in Sources */,
 				4426FD37184B77A900C521CA /* InstructionViewController.m in Sources */,
 				44A0A1A5184CFD9200939AE7 /* NSDataAES256.m in Sources */,
-				44A934A2184A5ED400072989 /* ViewController.m in Sources */,
 				44A0A1A4184CFD9200939AE7 /* GameCenterManager.m in Sources */,
 				44A93499184A5ED400072989 /* AppDelegate.m in Sources */,
 				4426FD34184B38E600C521CA /* GameOverViewController.m in Sources */,

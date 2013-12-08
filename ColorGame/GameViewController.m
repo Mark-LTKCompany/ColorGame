@@ -57,7 +57,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    realR=0, realG=0, realB=0, Ra=0, Ga=0, Ba=0, Rv=0, Gv=0, Bv=0;
+    Ra=0, Ga=0, Ba=0, Rv=0, Gv=0, Bv=0;
     
     //timer api
     gametimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updatetime) userInfo:nil repeats:YES];
@@ -71,7 +71,8 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSNumber *FrenzySetting = [defaults objectForKey:@"FrenzySetting"];
     
-    realR=1, realG=1, realB=1;
+    //realR=1, realG=1, realB=1;
+    //메인메뉴에서 이어지는 것으로 수정되면서 삭제
     
     if([FrenzySetting intValue]==1)
     {
@@ -113,7 +114,7 @@
     
     if(Ra>=0.01)
         directionRv=1;
-    if(Ra<=0.001)
+    if(Ra<=0.008)
         directionRv=0;
     if(directionRv==0)
         Ra+=a/1000000;
@@ -122,7 +123,7 @@
     
     if(Ga>=0.01)
         directionGv=1;
-    if(Ga<=0.001)
+    if(Ga<=0.008)
         directionGv=0;
     if(directionGv==0)
         Ga+=b/1000000;
@@ -131,7 +132,7 @@
     
     if(Ba>=0.01)
         directionBv=1;
-    if(Ba<=0.001)
+    if(Ba<=0.008)
         directionBv=0;
     if(directionBv==0)
         Ba+=c/1000000;
