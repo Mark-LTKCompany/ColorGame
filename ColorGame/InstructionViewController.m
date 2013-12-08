@@ -105,7 +105,10 @@
     {
         [[GameCenterManager sharedManager] saveAndReportAchievement:@"Groovy" percentComplete:100 shouldDisplayNotification:YES];
     }
+    else
+    {
     [[GameCenterManager sharedManager] saveAndReportAchievement:@"Groovy" percentComplete:100 shouldDisplayNotification:NO];
+    }
     groovy=[NSNumber numberWithInt:1];
     [defaults setObject:groovy forKey:@"Groovy"];
     [defaults synchronize];
