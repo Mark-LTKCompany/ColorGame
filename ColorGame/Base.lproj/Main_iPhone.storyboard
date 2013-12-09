@@ -131,27 +131,46 @@
                                     <action selector="FRENZYlabel:" destination="hUw-k9-bNs" eventType="valueChanged" id="wRv-dC-sXx"/>
                                 </connections>
                             </switch>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="FRENZY MODE" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dkr-qg-CF3">
+                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="FRENZY MODE" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dkr-qg-CF3">
                                 <rect key="frame" x="20" y="397" width="103" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="1" green="0.0" blue="0.10566986239999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Time Attack" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oHC-7W-1Jp">
+                                <rect key="frame" x="20" y="325" width="103" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" red="0.64852366370345615" green="0.0" blue="0.85050101902173914" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="UhZ-AL-pSv">
+                                <rect key="frame" x="20" y="358" width="51" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="TimeAttacklabel:" destination="hUw-k9-bNs" eventType="valueChanged" id="0vG-03-HS3"/>
+                                </connections>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="UhZ-AL-pSv" firstAttribute="leading" secondItem="zjS-Ds-Sy4" secondAttribute="leading" constant="20" id="6aE-Gs-qOV"/>
                             <constraint firstItem="Y84-Of-Ptv" firstAttribute="top" secondItem="nrn-C9-6Ym" secondAttribute="bottom" constant="20" id="CRA-uB-ixj"/>
+                            <constraint firstItem="Y84-Of-Ptv" firstAttribute="top" secondItem="UhZ-AL-pSv" secondAttribute="bottom" constant="91" id="FrJ-YP-PlV"/>
                             <constraint firstItem="Y84-Of-Ptv" firstAttribute="top" secondItem="Dkr-qg-CF3" secondAttribute="bottom" constant="53" id="OIX-R7-uEr"/>
                             <constraint firstItem="ToL-yG-kDe" firstAttribute="leading" secondItem="zjS-Ds-Sy4" secondAttribute="leading" constant="20" id="OrS-aO-LIb"/>
                             <constraint firstAttribute="trailing" secondItem="nrn-C9-6Ym" secondAttribute="trailing" constant="20" id="gMP-YA-dkI"/>
                             <constraint firstItem="Dkr-qg-CF3" firstAttribute="leading" secondItem="zjS-Ds-Sy4" secondAttribute="leading" constant="20" id="hPd-1e-BhB"/>
                             <constraint firstItem="Y84-Of-Ptv" firstAttribute="top" secondItem="ToL-yG-kDe" secondAttribute="bottom" constant="20" id="nVK-Ti-qiN"/>
+                            <constraint firstItem="Y84-Of-Ptv" firstAttribute="top" secondItem="oHC-7W-1Jp" secondAttribute="bottom" constant="125" id="pxr-z4-38I"/>
+                            <constraint firstItem="oHC-7W-1Jp" firstAttribute="leading" secondItem="zjS-Ds-Sy4" secondAttribute="leading" constant="20" id="ufA-Va-ure"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="Frenzylabelstate" destination="ToL-yG-kDe" id="d8P-5z-t8M"/>
+                        <outlet property="Timeattacklabelstate" destination="UhZ-AL-pSv" id="JeO-XN-Ku3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IpI-Te-cgt" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -19,7 +19,7 @@
 @synthesize time;
 @synthesize gametimer;
 @synthesize timer;
-@synthesize frenzylogic, frenzylogictimer;
+@synthesize frenzylogictimer;
 @synthesize realR, realG, realB, Ra, Ga, Ba, Rv, Gv, Bv, directionB,directionG,directionR,directionRv,directionGv,directionBv;
 
 @synthesize question;
@@ -45,11 +45,14 @@
 }
 
 //game time
+/*
 - (void) awakeFromNib
 {
     time = 50;
-    frenzylogic=0;
+    
 }
+ */
+//그냥 viewdidload에서 해도 되지 않나
 
 
 - (void)viewDidLoad
@@ -59,31 +62,55 @@
     
     Ra=0, Ga=0, Ba=0, Rv=0, Gv=0, Bv=0;
     
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    timeattacksetting = [defaults objectForKey:@"TimeattackSetting"];
+    
+    if([timeattacksetting intValue]!=1)
+    {
+        time=50;
+    }
+    else
+    {
+        time=20;
+    }
+    
     //timer api
-    gametimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updatetime) userInfo:nil repeats:YES];
-    timer.text = [NSString stringWithFormat:@"%i", time];
+    gametimer = [NSTimer scheduledTimerWithTimeInterval:0.03 target:self selector:@selector(updatetime) userInfo:nil repeats:YES];
+    int temp=time;
+    timer.text = [NSString stringWithFormat:@"%i", temp];
     [self GameLogic];
     score=0;
     scorelabel.text=[NSString stringWithFormat:@"%i", score];
     health=3;
     
     //If settings are enabled, use frenzy mode
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
     NSNumber *FrenzySetting = [defaults objectForKey:@"FrenzySetting"];
     
-    //realR=1, realG=1, realB=1;
-    //메인메뉴에서 이어지는 것으로 수정되면서 삭제
     
-    if([FrenzySetting intValue]==1)
+    
+    //realR=1, realG=1, realB=1;
+    //메인메뉴에서 이어지는 것으로 수정되면서 삭제. 메인메뉴 변화가 더럽다고 생각되면 다시 부활 예정.
+    
+    //Code modified: Frenzy only when TimeAttack is off
+    if([FrenzySetting intValue]==1&&[timeattacksetting intValue]!=1)
     {
     frenzylogictimer = [NSTimer scheduledTimerWithTimeInterval:0.03 target:self selector:@selector(frenzytime) userInfo:nil repeats:YES];
+    }
+    
+    //TimeAttack mode background change
+    if([timeattacksetting intValue]==1)
+    {
+        extratime=3;
+        if([FrenzySetting intValue]==1)
+        timeattackbackgroundtimer = [NSTimer scheduledTimerWithTimeInterval:0.03 target:self selector:@selector(timeattackbackgroundlogic) userInfo:nil repeats:YES];
     }
 }
 
 //timer logic
 - (void) updatetime
 {
-    time = time - 1;
+    time = time - 0.03;
     if (time <=0)
     {
         [gametimer invalidate];
@@ -94,14 +121,12 @@
         
         
     }
-    
-    timer.text = [NSString stringWithFormat:@"%i", time];
+    int temp=time;
+    timer.text = [NSString stringWithFormat:@"%i", temp];
 }
 
 - (void) frenzytime
 {
-    
-    frenzylogic = frenzylogic + 1;
     if (time <=0)
     {
         [frenzylogictimer invalidate];
@@ -176,6 +201,53 @@
     self.view.backgroundColor=[UIColor colorWithRed:realR green:realG blue:realB alpha:1];
     
 
+}
+
+//시간 줄어들수록 화면 변화
+- (void) timeattackbackgroundlogic
+{
+    if (time<=0)
+    {
+        [timeattackbackgroundtimer invalidate];
+    }
+    else
+    {
+        float R, G, B;
+ 
+        if(time>20)
+        {
+            R=1;
+            G=1;
+            B=1;
+        }
+        else if(time>=0.04)
+        {
+            R=(float)time/20;
+            G=(float)time/20;
+            B=(float)time/20;
+        }
+        else
+        {
+            R=0.04;
+            G=0.04;
+            B=0.04;
+        }
+        
+        
+        self.view.backgroundColor=[UIColor colorWithRed:R green:G blue:B alpha:1];
+    }
+}
+
+//추가 시간 부여 로직
+- (void) giveExtraTime
+{
+    if(extratime>=0.5)
+    {
+        extratime=extratime-0.1;
+    }
+    time=time+extratime;
+    int temp=time;
+    timer.text = [NSString stringWithFormat:@"%d", temp];
 }
 
 
@@ -382,7 +454,15 @@
 - (IBAction)Opt1
 {
     if(sort1==1)
+    {
         score++;
+        
+        //extra time
+        if([timeattacksetting intValue]==1)
+        {
+            [self giveExtraTime];
+        }
+    }
     else
     {
         score--;
@@ -406,12 +486,23 @@
     }
     scorelabel.text=[NSString stringWithFormat:@"%i", score];
     [self GameLogic];
+    
+    
+
+    
 }
 
 - (IBAction)Opt2
 {
     if(sort2==1)
+    {
         score++;
+        //extra time
+        if([timeattacksetting intValue]==1)
+        {
+            [self giveExtraTime];
+        }
+    }
     else
     {
         score--;
@@ -441,7 +532,14 @@
 - (IBAction)Opt3
 {
     if (sort3==1)
+    {
         score++;
+        //extra time
+        if([timeattacksetting intValue]==1)
+        {
+            [self giveExtraTime];
+        }
+    }
     else
     {
         score--;
@@ -472,7 +570,14 @@
 - (IBAction)Opt4
 {
     if(sort4==1)
+    {
         score++;
+        //extra time
+        if([timeattacksetting intValue]==1)
+        {
+            [self giveExtraTime];
+        }
+    }
     else
     {
         score--;

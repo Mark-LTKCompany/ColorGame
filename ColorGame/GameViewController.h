@@ -10,11 +10,18 @@
 #import "GameCenterManager.h"
 
 
-@interface GameViewController : UIViewController
+@interface GameViewController : UIViewController{
+    
+    //지금이라도 @property 남발 자제
+    NSTimer *timeattackbackgroundtimer;
+    NSNumber *timeattacksetting;
+    
+    float extratime;
+    
+}
 
-@property int time;
+@property float time;
 @property NSTimer *gametimer;
-@property int frenzylogic;
 @property NSTimer *frenzylogictimer;
 @property float realR, realG, realB, Ra, Ga, Ba, Rv, Gv, Bv, directionR, directionG, directionB, directionRv, directionGv, directionBv;
 

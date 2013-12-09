@@ -15,6 +15,7 @@
 @implementation InstructionViewController
 
 @synthesize Frenzylabelstate;
+@synthesize Timeattacklabelstate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -36,6 +37,11 @@
         Frenzylabelstate.on=YES;
     else
         Frenzylabelstate.on=NO;
+    NSNumber *Timeattacksetting = [defaults objectForKey:@"TimeattackSetting"];
+    if([Timeattacksetting intValue]==1)
+        Timeattacklabelstate.on=YES;
+    else
+        Timeattacklabelstate.on=NO;
 }
 
 - (void)didReceiveMemoryWarning
@@ -117,5 +123,28 @@
     [defaults setObject:groovy forKey:@"Groovy"];
     [defaults synchronize];
 }
+
+- (IBAction)TimeAttacklabel:(id)sender
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSNumber *Timeattacksetting = [defaults objectForKey:@"TimeattackSetting"];
+    
+    if([Timeattacksetting intValue]==1)
+    {
+        Timeattacksetting=[NSNumber numberWithInt:0];
+        [defaults setObject:Timeattacksetting
+                     forKey:@"TimeattackSetting"];
+        [defaults synchronize];
+    }
+    else
+    {
+        Timeattacksetting=[NSNumber numberWithInt:1];
+        [defaults setObject:Timeattacksetting
+                     forKey:@"TimeattackSetting"];
+        [defaults synchronize];
+    }
+
+}
+
 
 @end
