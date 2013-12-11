@@ -663,7 +663,7 @@
     
     //Achievements and game center high score
     
-    [[GameCenterManager sharedManager] saveAndReportScore:score leaderboard:@"1" sortOrder:GameCenterSortOrderHighToLow];
+    
     
     if(score==-3)
     {
@@ -721,14 +721,32 @@
     
     //Load local highscore, compare, and save new highscore if necessary
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSNumber *highscore = [defaults objectForKey:@"scoretosave"];
-    if(score>[highscore intValue])
+    NSNumber *highscore;
+    if([timeattacksetting intValue]!=1)
     {
-        NSNumber *scoretosave=[NSNumber numberWithInt:score];
-        [defaults setObject:scoretosave forKey:@"scoretosave"];
-        [defaults synchronize];
-        //without the code below, the highscore will only be updated next time, because NSNumber highscore is based on previous value
-        highscore = [NSNumber numberWithInt:score];
+        highscore = [defaults objectForKey:@"normalhigh"];
+        if(score>[highscore intValue])
+        {
+            NSNumber *scoretosave=[NSNumber numberWithInt:score];
+            [defaults setObject:scoretosave forKey:@"normalhigh"];
+            [defaults synchronize];
+            //without the code below, the highscore will only be updated next time, because NSNumber highscore is based on previous value
+            highscore = [NSNumber numberWithInt:score];
+        }
+        [[GameCenterManager sharedManager] saveAndReportScore:score leaderboard:@"1" sortOrder:GameCenterSortOrderHighToLow];
+    }
+    else
+    {
+        highscore = [defaults objectForKey:@"timeattackhigh"];
+        if(score>[highscore intValue])
+        {
+            NSNumber *scoretosave=[NSNumber numberWithInt:score];
+            [defaults setObject:scoretosave forKey:@"timeattackhigh"];
+            [defaults synchronize];
+            //without the code below, the highscore will only be updated next time, because NSNumber highscore is based on previous value
+            highscore = [NSNumber numberWithInt:score];
+        }
+        [[GameCenterManager sharedManager] saveAndReportScore:score leaderboard:@"2" sortOrder:GameCenterSortOrderHighToLow];
     }
     
     GameOverViewController *GameOverViewController =
