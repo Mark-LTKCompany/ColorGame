@@ -662,12 +662,17 @@
 {
     
     //Achievements and game center high score
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSNumber *FrenzySetting = [defaults objectForKey:@"FrenzySetting"];
     
+    if(score>0&&[FrenzySetting intValue]==1)
+    {
+        score*=1.1;
+    }
     
-    
+
     if(score==-3)
     {
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         NSNumber *under_achiever = [defaults objectForKey:@"Under_Achiever"];
         if([[GameCenterManager sharedManager] progressForAchievement:@"Under_Achiever"]!=100||[under_achiever intValue]!=1)
         {
@@ -684,7 +689,6 @@
     }
     if(score==0)
     {
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         NSNumber *risk_aversion = [defaults objectForKey:@"Risk_Aversion"];
         
         if([[GameCenterManager sharedManager] progressForAchievement:@"Risk_Aversion"]!=100||[risk_aversion intValue]!=1)
@@ -702,7 +706,6 @@
     }
     if(score==42)
     {
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         NSNumber *meaning_of_life = [defaults objectForKey:@"Meaning_of_life"];
         
         if([[GameCenterManager sharedManager] progressForAchievement:@"Meaning_of_life"]!=100||[meaning_of_life intValue]!=1)
@@ -720,7 +723,7 @@
     }
     
     //Load local highscore, compare, and save new highscore if necessary
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
     NSNumber *highscore;
     if([timeattacksetting intValue]!=1)
     {
