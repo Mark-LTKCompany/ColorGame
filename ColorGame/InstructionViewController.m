@@ -107,21 +107,23 @@
         [defaults setObject:FrenzySetting
                      forKey:@"FrenzySetting"];
         [defaults synchronize];
+        
+        NSNumber *groovy = [defaults objectForKey:@"Groovy"];
+        
+        if([[GameCenterManager sharedManager] progressForAchievement:@"Groovy"]!=100||[groovy intValue]!=1)
+        {
+            [[GameCenterManager sharedManager] saveAndReportAchievement:@"Groovy" percentComplete:100 shouldDisplayNotification:YES];
+        }
+        else
+        {
+            [[GameCenterManager sharedManager] saveAndReportAchievement:@"Groovy" percentComplete:100 shouldDisplayNotification:NO];
+        }
+        groovy=[NSNumber numberWithInt:1];
+        [defaults setObject:groovy forKey:@"Groovy"];
+        [defaults synchronize];
     }
     
-    NSNumber *groovy = [defaults objectForKey:@"Groovy"];
     
-    if([[GameCenterManager sharedManager] progressForAchievement:@"Groovy"]!=100||[groovy intValue]!=1)
-    {
-        [[GameCenterManager sharedManager] saveAndReportAchievement:@"Groovy" percentComplete:100 shouldDisplayNotification:YES];
-    }
-    else
-    {
-    [[GameCenterManager sharedManager] saveAndReportAchievement:@"Groovy" percentComplete:100 shouldDisplayNotification:NO];
-    }
-    groovy=[NSNumber numberWithInt:1];
-    [defaults setObject:groovy forKey:@"Groovy"];
-    [defaults synchronize];
 }
 
 - (IBAction)TimeAttacklabel:(id)sender
