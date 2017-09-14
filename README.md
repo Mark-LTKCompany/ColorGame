@@ -9,3 +9,7 @@ The app is no longer unavailable due to the developer license ending.
   
 # Screenshot
 ![alt text](screenshot.jpg)
+
+# Dev stacks
+Objective-C  
+Apple Game Center API
